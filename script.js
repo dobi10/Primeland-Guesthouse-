@@ -1,10 +1,9 @@
-// PrimeLand Guesthouse script.js
+// PrimeLand Guesthouse JavaScript
 
 
 // Mobile Menu
 
 const menuBtn = document.querySelector(".menu-btn");
-
 const navLinks = document.querySelector(".nav-links");
 
 
@@ -12,7 +11,7 @@ if(menuBtn){
 
 menuBtn.addEventListener("click",()=>{
 
-    navLinks.classList.toggle("active");
+navLinks.classList.toggle("active");
 
 });
 
@@ -22,11 +21,11 @@ menuBtn.addEventListener("click",()=>{
 
 document.querySelectorAll(".nav-links a").forEach(link=>{
 
-    link.addEventListener("click",()=>{
+link.addEventListener("click",()=>{
 
-        navLinks.classList.remove("active");
+navLinks.classList.remove("active");
 
-    });
+});
 
 });
 
@@ -35,7 +34,8 @@ document.querySelectorAll(".nav-links a").forEach(link=>{
 
 
 
-// WhatsApp Booking System
+
+// WhatsApp Booking
 
 
 const bookingForm = document.getElementById("bookingForm");
@@ -51,19 +51,29 @@ e.preventDefault();
 
 
 
-const name = document.getElementById("name").value;
-
-const phone = document.getElementById("phone").value;
-
-const date = document.getElementById("date").value;
-
-const room = document.getElementById("room").value;
-
-const message = document.getElementById("message").value;
+const name =
+document.getElementById("name").value;
 
 
+const phone =
+document.getElementById("phone").value;
 
-const whatsappMessage = `
+
+const date =
+document.getElementById("date").value;
+
+
+const room =
+document.getElementById("room").value;
+
+
+const message =
+document.getElementById("message").value;
+
+
+
+
+const text = `
 
 Hello PrimeLand Guesthouse,
 
@@ -73,7 +83,7 @@ I would like to make a booking request.
 
 📞 Phone: ${phone}
 
-📅 Booking Date: ${date}
+📅 Date: ${date}
 
 🛏 Room: ${room}
 
@@ -86,11 +96,11 @@ Thank you.
 
 
 
+
 const whatsappNumber = "251987770238";
 
 
-
-const whatsappURL =
+const whatsappLink =
 
 "https://wa.me/" +
 
@@ -98,11 +108,11 @@ whatsappNumber +
 
 "?text=" +
 
-encodeURIComponent(whatsappMessage);
+encodeURIComponent(text);
 
 
 
-window.open(whatsappURL,"_blank");
+window.open(whatsappLink,"_blank");
 
 
 
@@ -120,7 +130,8 @@ bookingForm.reset();
 
 
 
-// Scroll Animation
+
+// Scroll reveal animation
 
 
 const sections = document.querySelectorAll("section");
@@ -128,26 +139,25 @@ const sections = document.querySelectorAll("section");
 
 sections.forEach(section=>{
 
-
 section.style.opacity="0";
 
 section.style.transform="translateY(40px)";
 
 section.style.transition="0.8s ease";
 
-
 });
 
 
 
-
-function revealSections(){
+function reveal(){
 
 
 sections.forEach(section=>{
 
 
-const position = section.getBoundingClientRect().top;
+const position =
+section.getBoundingClientRect().top;
+
 
 
 if(position < window.innerHeight - 100){
@@ -161,6 +171,7 @@ section.style.transform="translateY(0)";
 }
 
 
+
 });
 
 
@@ -168,7 +179,7 @@ section.style.transform="translateY(0)";
 
 
 
-window.addEventListener("scroll", revealSections);
+window.addEventListener("scroll",reveal);
 
 
-revealSections();
+reveal();
